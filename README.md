@@ -35,6 +35,7 @@ ObsidianVault/
 
 ```text
 今日论文推荐
+或者
 读一下这篇论文 https://arxiv.org/abs/2509.24527
 ```
 
@@ -70,26 +71,26 @@ ObsidianVault/
 - [`poppler-utils`](https://poppler.freedesktop.org/)（`apt install poppler-utils` / `brew install poppler`）
 - [Zotero](https://www.zotero.org/)（可选）
 
-建议给 Obsidian 库加上 git 版本管理。笔记多了以后有个版本历史会安心很多，也方便多设备同步。
+建议给 Obsidian 库加上 git 版本管理（其实就是在Obsidian的笔记仓库下创建一个git）。笔记多了以后有个版本历史会安心很多，也方便多设备同步。
 
 如果你是在自己的本地机器上日常使用，通常直接用 `claude --dangerously-skip-permissions` 会省很多权限确认；前提是你清楚这会跳过权限检查，所以更适合个人环境，不建议在不熟悉的机器上直接这么跑。
 
-在仓库根目录运行：
+在仓库根目录打开terminal，运行：
 
 ```bash
-mkdir -p ~/.claude/skills
-cp -r ./skills/* ~/.claude/skills/
-
-# 改成你自己的 Obsidian 库路径，要跟配置文件里的 paths.obsidian_vault 一致
-VAULT=~/ObsidianVault
+VAULT=~/ObsidianVault #改成你自己的 Obsidian 库路径，要跟./skills/_shared/user-config.json里的 paths.obsidian_vault 一致
 mkdir -p "$VAULT/DailyPapers" \
   "$VAULT/论文笔记/_概念/0-待分类" \
   "$VAULT/论文笔记/_待整理"
 ```
+```bash
+mkdir -p ~/.claude/skills
+cp -r ./skills/* ~/.claude/skills/
+```
 
 ## ⚙️ 配置
 
-安装完之后需要改一下配置。配置文件是 `~/.claude/skills/_shared/user-config.json`，可以自己改，也可以直接告诉 Claude 你的需求让它帮你改。
+安装完之后需要改一下配置。配置文件是 `~/.claude/skills/_shared/user-config.json`
 
 里面主要改这几项：
 
